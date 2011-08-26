@@ -34,6 +34,7 @@ class HomePage
     public $site_url="";
     public $site_title="";
     public $contact="contact email";
+    public $favicon="res/favicon.ico";
     protected $attributes = Array();
 
     public $page_path="";
@@ -118,6 +119,7 @@ EOS;
 <meta name="url" content="$this->site_url" />
 <meta name="keywords" content="$this->keywords" />
 <link rel="stylesheet" type="text/css" href="$this->style"></link>
+<link rel="shortcut icon" type="text/css" href="$this->favicon"></link>
 <title>$this->title</title>
 
 </head>
