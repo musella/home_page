@@ -167,8 +167,9 @@ EOS;
 <div id="footer">
 
 <p style="font-style: italic; text-align: left">contact: $this->contact</p>
-<img src="http://www.w3.org/Icons/valid-xhtmlbasic10-blue.png" alt="[valid xhtml basic 1.0]"/>
-
+<p style="font-style: italic; text-align: left"><img src="http://www.w3.org/Icons/valid-xhtmlbasic10-blue.png" alt="[valid xhtml basic 1.0]"/>
+		    done with <a href="https://github.com/musella/home_page">Home_P@age</a> 
+		    </p>	    
 </div>
 
 </body>

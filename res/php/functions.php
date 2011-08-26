@@ -45,12 +45,12 @@ function resource($url,$name)
  * The expected file format is
  * url && linkname 
  */
-function get_bookmarks($filename,$target="_blank",$rowlen=12,$openrow="<tr>",$closerow="</tr>",$opencell="<td>",$closecell="</td>")
+function get_bookmarks($filename,$target="_blank",$rowlen=12,$opentable="<table>",$closetable="</table>",$openrow="<tr>",$closerow="</tr>",$opencell="<td>",$closecell="</td>")
 {
 	$file = file_get_contents($filename);
 	$bookmarks=split("\n",$file);
   
-        $ret = "";
+        $ret = $opentable;
         $n = 1;
         foreach( $bookmarks as $bm ) {
                  if( $bm == "" ) { continue; }
@@ -63,6 +63,7 @@ function get_bookmarks($filename,$target="_blank",$rowlen=12,$openrow="<tr>",$cl
         	 }
         }
         if( $rowlen > 0 && $n % $rowlen != 1 ) { $ret .= $closerow; }
+        $ret .= $closetable;
         return $ret;
 }
 
