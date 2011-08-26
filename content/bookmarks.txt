@@ -1,0 +1,5 @@
+http://arxiv.org/list/hep-ph/recent && arXiv
+http://pdglive.lbl.gov/ && PDG
+http://home.thep.lu.se/~torbjorn/Pythia.html && Phytia
+http://www.geant4.org/ && Geant4
+http://user.web.cern.ch/user/Welcome.asp && CERN Users pages

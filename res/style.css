@@ -1,0 +1,111 @@
+/* <![CDATA[ */
+
+body {
+       left : 5%;
+       padding: 0px;
+       margin: 0px;
+       font-family:arial, helvetica;
+       font-weight: 600; 
+       font-size: 14px;
+       border-color : #466603;
+       color : #6E863B;
+       /* background : #DEF5AD; */
+	
+}
+
+#header {
+          text-align: center;
+          float: left; 
+          /*width: 50%;
+          padding-left: 12%; 
+             */
+          width: 76%;
+          padding-left: 12%;        
+          padding-top: 0.5ex;
+          color : #1BBA13;
+}
+
+#footer {
+          text-align: left;
+          width: 76%;
+          padding-left: 12%;
+          padding-bottom: 0%;
+          clear: both;
+}
+
+#content {
+           text-align: left; 
+           float: left; 
+           width: 50%;
+           padding-left: 12%; 
+}
+
+#side {
+        text-align: left; 
+        padding-right: 12%; 
+        float: right; 
+        width: 25%;
+        padding-top: 1.5ex;
+}
+
+.box legend { 
+              color : #466603;
+              -moz-border-radius: 2ex;
+              -webkit-border-radius: 2ex;
+              -khtml-border-radius: 2ex;
+              border-radius: 2ex;
+              padding: 0.5ex;
+              border : 2px solid #466603;
+} 
+
+a { 
+    color: #99D715;
+    text-decoration:  none;
+}
+
+a:hover { 
+          color: #DEF5AD;
+          background: #99D715;
+
+}
+
+hr.line {
+          width: 50%; 
+          height: 1px;
+}
+
+#content li { 
+     color : #1BBA13; 
+     padding-bottom: 1ex;
+}
+
+#content li ul li { 
+           color : #6E863B;
+           padding-bottom: 0.5ex;
+}
+
+li em { 
+     text-decoration : underline;
+     color: #828974;
+ }
+
+.box {
+       border-color : #466603;
+       border : 2px dashed #466603;
+       margin-bottom : 1.5ex;
+       -moz-border-radius: 2ex;
+       -webkit-border-radius: 2ex;
+       -khtml-border-radius: 2ex;
+       border-radius: 2ex;
+}
+
+.round {
+         border-color : #466603;
+         border : 2px dashed #466603;
+         -moz-border-radius: 0.5ex;
+         -webkit-border-radius: 2ex;
+         -khtml-border-radius: 2ex;
+         border-radius: 2ex;
+}
+
+/* ]]> */
