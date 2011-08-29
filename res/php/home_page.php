@@ -127,7 +127,7 @@ EOS;
 
 <div id="header">
   <fieldset class="round">
-  <h1>$this->site_title</h1>
+  <h1><a href="$this->site_url">$this->title</a></h1>
   </fieldset>
   $navbar
 </div>
@@ -187,7 +187,7 @@ EOS;
 function bookmarks($args)
 {
         list($filename) = $args;
-        return get_bookmarks(CONTENT_ROOT .  $filename . ".txt" );
+        return get_bookmarks(CONTENT_ROOT .  $filename . ".txt", "_blank", 12, "", "", "", "<br />", "", "" );
 }
 
 function feed($args)

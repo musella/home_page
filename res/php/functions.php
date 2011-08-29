@@ -57,7 +57,7 @@ function get_bookmarks($filename,$target="_blank",$rowlen=12,$opentable="<table>
 		 list($url,$name) = split("[ ]*&&[ ]*",$bm);
         	 if( ! empty($url) ) {
       	     	     if( $rowlen > 0 && $n % $rowlen == 1 ) { $ret .= $openrow; }
-     	     	     $ret .= bookmark( $url, $name );
+     	     	     $ret .= bookmark( $url, $name, $target, $opencell, $closecell );
       	     	     if( $rowlen > 0 && $n % $rowlen == 0 ) { $ret .= $closerow; }
       	     	     $n++;
         	 }

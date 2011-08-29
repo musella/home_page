@@ -108,4 +108,13 @@ li em {
          border-radius: 2ex;
 }
 
+#header a { 
+	color: inherit; 
+}
+
+#header a:hover { 
+	text-decoration : underline;
+	background : inherit;
+}
+
 /* ]]> */
