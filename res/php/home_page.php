@@ -199,15 +199,19 @@ function feed($args)
         $feed->enable_cache(0);
         $feed->set_feed_url($url);
         $feed->init();
-        $ret .= "<ul>";
+        // $ret .= "<ul>";
         foreach ($feed->get_items(0, $nitems) as $item) {
-		$ret .= "<li>";
-		$ret .= $item->get_title();
+		// $ret .= "<li>";
+		$ret .= "o ";
+		$ret .= "<span class=\"feed\">";
+		$ret .= "<i>".$item->get_title()."</i> ";
+		$ret .= "<span class=\"feed_description\">".$item->get_description().resource($item->get_permalink(),"read")."</span>";
+		$ret .= "</span>";
 		$ret .= resource($item->get_permalink(),"read");
 	        $ret .= "<br/>";
-	        $ret .= "</li>";
+	        // $ret .= "</li>";
         }
-        $ret .= "</ul>";
+        // $ret .= "</ul>";
 	return $ret;
 }
 

@@ -49,13 +49,14 @@ body {
 }
 
 .box legend { 
-              color : #466603;
-              -moz-border-radius: 2ex;
-              -webkit-border-radius: 2ex;
-              -khtml-border-radius: 2ex;
-              border-radius: 2ex;
-              padding: 0.5ex;
-              border : 2px solid #466603;
+          color : #466603;
+          background : #FFFFFF;
+          -moz-border-radius: 2ex;
+          -webkit-border-radius: 2ex;
+          -khtml-border-radius: 2ex;
+          border-radius: 2ex;
+          padding: 0.5ex;
+          border : 2px solid #466603;
 } 
 
 a { 
@@ -115,6 +116,42 @@ li em {
 #header a:hover { 
 	text-decoration : underline;
 	background : inherit;
+}
+
+.feed_description {
+     display : none;
+     color : #1BBA13;
+     opacity: 1;
+     -moz-opacity:1;
+     position: absolute; 
+	top : inherit;
+	left : 70%;
+	width : 30%;
+     background : #FFFFFF;
+     padding : 0.5ex;	 
+         border-color : #466603;
+         border : 2px solid #466603;
+         -moz-border-radius: 0.5ex;
+         -webkit-border-radius: 2ex;
+         -khtml-border-radius: 2ex;
+         border-radius: 2ex;
+}
+
+.feed_description img {
+	width : 100%;
+}
+
+.feed:hover {
+        color: #DEF5AD;
+	background: #99D715;
+}
+
+.feed:hover  .feed_description {
+	display : block;
+}
+
+.feed_description:hover{
+	display : block;
 }
 
 /* ]]> */
