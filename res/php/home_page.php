@@ -107,7 +107,7 @@ class HomePage
             $navbar = "";
             if( $this->page_name != "home" ) {
                 $navbar = <<< EOS
-<div style="text-align: left;">&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;<a href="$this->page_url">$this->page_name</a>&nbsp; [<a href="$this->site_url">home</a>&nbsp;] &lt;&lt;</div>
+<div id="navbar" style="text-align: left;">&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;you are in <a href="$this->page_url">$this->page_name</a>&nbsp; [return to <a href="$this->site_url">home</a>&nbsp;] &lt;&lt;</div>
 EOS;
 	    }
 	    return <<< EOS

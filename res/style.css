@@ -137,6 +137,10 @@ li em {
          border-radius: 2ex;
 }
 
+#navbar a { 
+              color: orange;
+}
+
 .feed_description img {
 	width : 100%;
 }
