@@ -71,8 +71,10 @@ class HomePage
     public function fetch_content() {
 	    $page="home";
 	    if( !empty($_GET["p"]) ) { $page=$_GET["p"]; } 
-	    
-	    if( $content = @file_get_contents(CONTENT_ROOT . $page. ".markdown") ) {
+
+            if( $page == "ls" ) {
+                     $this->content=$this->list_all_pages();
+	    } else if( $content = @file_get_contents(CONTENT_ROOT . $page. ".markdown") ) {
 		    $this->content=Markdown($content);
 	    } else {
 		    $this->content = "<br/> <br/><span style=\"font-size: 150; color : red;\" >Ooops! The page was not found.</span> &gt;&gt; <a href=\"". BASE_URL."\">home</a>\n";
@@ -82,6 +84,20 @@ class HomePage
             $this->media_url = BASE_URL . "/" . $this->media_dir;
 	    $this->page_url = $this->site_url;
 	    if( $page != "home" ) { $this->page_url .= "/?p=" . $page; }
+    }
+
+    public function list_all_pages() {
+        $ret = "";
+        $dir_handle = opendir(CONTENT_ROOT);
+        //running the while loop
+        while ($file = readdir($dir_handle)) 
+        {
+            if( fnmatch("*markdown",$file) ) {
+               $pname =  str_replace( ".markdown", "", $file );
+               $ret .= "  * [". $pname."](?p=".$pname.")\n";
+            }
+    	}
+        return Markdown($ret);
     }
 
     public function fetch_side_content() {
@@ -105,11 +121,12 @@ class HomePage
 
     protected function header() {
             $navbar = "";
-            if( $this->page_name != "home" ) {
+            // if( $this->page_name != "home" ) {
                 $navbar = <<< EOS
-<div id="navbar" style="text-align: left;">&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;you are in <a href="$this->page_url">$this->page_name</a>&nbsp; [return to <a href="$this->site_url">home</a>&nbsp;] &lt;&lt;</div>
+<div id="navbar" style="text-align: left;">&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;you are in <a href="$this->page_url">$this->page_name</a>&nbsp; [return to <a href="$this->site_url">home</a>&nbsp;]
+   [list <a href="$this->site_url/?p=ls">all pages</a>&nbsp;] &lt;&lt;</div>
 EOS;
-	    }
+	    // }
 	    return <<< EOS
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">

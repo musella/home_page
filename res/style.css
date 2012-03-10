@@ -100,6 +100,20 @@ li em {
        border-radius: 2ex;
 }
 
+.tbox {
+       border-color : #466603;
+       border : 2px dashed #466603;
+       margin : 0.5ex;
+       padding : 0;
+//       color: white;
+//        background: #466603;
+//       margin-bottom : 1.5ex;
+       -moz-border-radius: 2ex;
+       -webkit-border-radius: 2ex;
+       -khtml-border-radius: 2ex;
+       border-radius: 2ex;
+}
+
 .round {
          border-color : #466603;
          border : 2px dashed #466603;
@@ -108,6 +122,7 @@ li em {
          -khtml-border-radius: 2ex;
          border-radius: 2ex;
 }
+
 
 #header a { 
 	color: inherit; 
