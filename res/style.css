@@ -173,4 +173,10 @@ li em {
 	display : block;
 }
 
+code {   
+       color: #bdc820;
+//       background-color: #f3f6ca; 
+       text-width : 100%;
+}
+
 /* ]]> */
