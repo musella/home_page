@@ -1,6 +1,6 @@
 This is Home_P@age. A simple PHP based class to build personal home page. 
 
-The project is very immature. I am distibuting the code 'as is' with the home that it may be useful to someone.
+The project is very immature. I am distibuting the code 'as is' with the hope that it may be useful to someone.
 
 * The page content can be written in Markdown.
 * Pages are added to the website by creating a markdown file in the content directory.
