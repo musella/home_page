@@ -44,7 +44,9 @@ class HomePage
 
     protected $elements = Array();
     protected $side_plugins = Array();
+    protected $pre_plugins = Array();
     protected $side_contents = Array();
+    protected $pre_contents = Array();
 
     public function __construct($site_title="<i>_Home_P@ge_</i>",$title="") {
            $this->site_title=$site_title;
@@ -66,6 +68,7 @@ class HomePage
     public function process_input() {
            $this->fetch_content();
            $this->fetch_side_content();
+           $this->fetch_pre_content();
     }
 
     public function fetch_content() {
@@ -107,11 +110,23 @@ class HomePage
                   $this->side_contents[] = Array( $title, $func( $args ) );
            }
     }
-    
+
+    public function fetch_pre_content() {
+           foreach( $this->pre_plugins as $pre_plugin ) {
+                  list($title,$func,$args) = $pre_plugin;
+                  // $title = Markdown($title);
+                  $this->pre_contents[] = $func( $args );
+           }
+    }
+
     public function add_side_content($title,$func,$args) {
            $this->side_plugins[] = Array($title,$func,$args);
     }
-    
+
+    public function add_pre_content($func,$args) {
+           $this->pre_plugins[] = Array("",$func,$args);
+    }
+
     public function __toString() {
 	    return  $this->header() . "\n" .
 		    $this->side()   . "\n" . 
@@ -171,12 +186,16 @@ EOS;
     }
 
     protected function content() {
+            $ret = "";
+            foreach( $this->pre_contents as $pre_content ) {
+                 $ret .= $pre_content;
+            }
+            $ret .= $this->content;
 	    return <<< EOS
 <div id="content">
-$this->content
+$ret
 </div>
 EOS;
-
     }
 
     protected function footer() {
@@ -184,9 +203,11 @@ EOS;
 <div id="footer">
 
 <p style="font-style: italic; text-align: left">contact: $this->contact</p>
-<p style="font-style: italic; text-align: left"><img src="http://www.w3.org/Icons/valid-xhtmlbasic10-blue.png" alt="[valid xhtml basic 1.0]"/>
-		    done with <a href="https://github.com/musella/home_page">Home_P@age</a> 
-		    </p>	    
+<p style="font-style: italic; text-align: left">
+  <img src="http://www.w3.org/Icons/valid-xhtmlbasic10-blue.png" alt="[valid xhtml basic 1.0]"/>
+  <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+  done with <a href="https://github.com/musella/home_page">Home_P@age</a> 
+</p>	    
 </div>
 
 </body>
@@ -219,16 +240,30 @@ function feed($args)
         // $ret .= "<ul>";
         foreach ($feed->get_items(0, $nitems) as $item) {
 		// $ret .= "<li>";
+		$ret .= "<div class=\"feed\">";
 		$ret .= "o ";
-		$ret .= "<span class=\"feed\">";
 		$ret .= "<i>".$item->get_title()."</i> ";
-		$ret .= "<span class=\"feed_description\">".$item->get_description().resource($item->get_permalink(),"read")."</span>";
-		$ret .= "</span>";
+		$ret .= "<div class=\"feed_description\">".$item->get_description().resource($item->get_permalink(),"read")."</div>";
+		$ret .= "</div>";
 		$ret .= resource($item->get_permalink(),"read");
 	        $ret .= "<br/>";
 	        // $ret .= "</li>";
         }
         // $ret .= "</ul>";
+	return $ret;
+}
+
+function rndfeed($args)
+{
+        list($url,$nitems) = $args;
+        $ret = "";
+        $feed = new SimplePie();
+
+        $feed->enable_cache(0);
+        $feed->set_feed_url($url);
+        $feed->init();
+	$item = $feed->get_item(rand(0,$feed->get_item_quantity()));
+	  $ret .= "<div class=\"rnd_feed\">".$item->get_description()."</div>";
 	return $ret;
 }
 
