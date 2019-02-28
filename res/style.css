@@ -91,6 +91,10 @@ li em {
      color: #246E6E;
  }
 
+.highlight em {
+    color: #F0A000;
+}
+
 .box {
        border-color : #2E457B;
        border : 2px dashed #2E457B;
